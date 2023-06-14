@@ -57,6 +57,12 @@ public class NotificatorService {
                         .email(e)
                         .topicTitle(article.getTopic().getTitle())
                         .build()).toList();
-        messages.forEach(m -> jmsMessages.convertAndSend("MessagesMB",m));
+        messages.forEach(m -> {
+            try {
+                jmsMessages.convertAndSend("MessagesMB",objectMapper.writeValueAsString(m));
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 }

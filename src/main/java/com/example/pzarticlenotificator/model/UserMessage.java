@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @Data
 @Builder
-public class UserMessage implements Serializable {
+public class UserMessage{
     private String email;
     private String topicTitle;
     private String articleTitle;
