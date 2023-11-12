@@ -8,6 +8,7 @@ class PzArticleNotificatorApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }
